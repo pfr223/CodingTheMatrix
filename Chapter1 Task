@@ -1,0 +1,15 @@
+# Task 1.4.10
+
+from plotting1 import plot
+from image import file2image, color2gray
+from math import e, pi
+
+data = color2gray(file2image('img01.png'))
+pts = [x+(len(data)-y)*1j for y in range(len(data)) for x in range(len(data[y])) if data[y][x] < 120]
+pts1 = [x+ y*1j for y in range(len(data)) for x in range(len(data[y])) if data[y][x] < 120]
+
+#### Rotate pi/2 counterclockwise
+pts2 = [z * (e**(1j*pi/2)) for z in pts]
+
+plot(pts,len(data))
+plot(pts1, len(data))
