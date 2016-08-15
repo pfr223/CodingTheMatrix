@@ -1,0 +1,32 @@
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Aug 15 15:08:30 2016
+
+@author: Administrator
+"""
+
+import plotting1
+
+def add2vector(v, w):
+    return [x+y for (x,y) in zip(v, w)]
+
+#a = [2, 3, 8, 1]
+#b = [5, 4, 1, 6]
+#p = add2vector(a,b)
+#print p
+
+def scalar_vector_mult(alpha, v):
+    return [alpha * x for x in v]
+
+
+v = [2]
+w = [5]
+#plotting1.plot([scalar_vector_mult(i/100., v) for i in range(101)], 5)
+
+def segment(pt1, pt2):
+    
+    return [add2vector(scalar_vector_mult(x/100., pt1), scalar_vector_mult((100-x)/100., pt2)) for x in range(100)]
+
+p = segment([3.5, 3], [0.5, 1])
+plotting1.plot(p)
